@@ -31,6 +31,7 @@
             this.input = new System.Windows.Forms.TextBox();
             this.enter = new System.Windows.Forms.Button();
             this.output = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // input
@@ -63,7 +64,16 @@
             this.output.Size = new System.Drawing.Size(409, 184);
             this.output.TabIndex = 0;
             this.output.Text = "";
-      
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(413, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ATMForm
             // 
@@ -71,6 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(509, 358);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.enter);
             this.Controls.Add(this.input);
             this.Controls.Add(this.output);
@@ -86,6 +97,7 @@
         private System.Windows.Forms.TextBox input;
         private System.Windows.Forms.Button enter;
         private System.Windows.Forms.RichTextBox output;
+        private System.Windows.Forms.Button button1;
     }
 }
 

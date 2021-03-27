@@ -19,25 +19,32 @@ namespace ATM
 
         //signal to wait for enter button to be clicked
         SemaphoreSlim buttonSignal = new SemaphoreSlim(0, 1);
-        
+        //Task main;
+
+        bool canceled;
+
         //Constructor
         public ATMForm(Account[] ac)
         {
             InitializeComponent();
             input.KeyPress += input_KeyPress;
             input.KeyDown += input_KeyDown;
-            
+
             this.ac = ac;
 
             run();
-            
         }
 
-            //loops forever to allow program to run
-            private async Task run()
-            {
+        //loops forever to allow program to run
+        private async void run()
+        {
+
+            activeAccount = null;
+
             while (true)
-            { 
+            {
+                canceled = false;
+
                 activeAccount = await this.findAccount();
 
                 if (activeAccount != null)
@@ -54,7 +61,7 @@ namespace ATM
                     write("no matching account found.");
                     await buttonSignal.WaitAsync();
                     clear();
-                }                    
+                }
             }
         }
 
@@ -62,13 +69,17 @@ namespace ATM
         {
             write("Please enter your account number:");
 
-            int input = await recieveInput();
+            int input_ = await recieveInput();
+
+            if (canceled)
+                return null;
 
             clear();
 
             for (int i = 0; i < this.ac.Length; i++)
             {
-                if (ac[i].getAccountNum() == input)
+                Debug.WriteLine(ac[i].getAccountNum());
+                if (ac[i].getAccountNum() == input_)
                 {
                     return ac[i];
                 }
@@ -80,8 +91,11 @@ namespace ATM
         private async Task<int> promptForPin()
         {
             write("enter pin:");
-            
+
             int pinNumEntered = await recieveInput();
+
+            if (canceled)
+                return 0;
 
             clear();
             return pinNumEntered;
@@ -94,6 +108,9 @@ namespace ATM
             write("3> exit");
 
             int choice = await recieveInput();
+
+            if (canceled)
+                return;
 
             clear();
 
@@ -115,7 +132,7 @@ namespace ATM
 
             }
 
-           
+
         }
 
         private async Task dispWithdraw()
@@ -125,6 +142,9 @@ namespace ATM
             write("3> 500");
 
             int input = await recieveInput();
+
+            if (canceled)
+                return;
 
             clear();
 
@@ -146,7 +166,7 @@ namespace ATM
                     else
                     {
                         //if this is not possible inform user and await key press
-                        write("insufficent funds"+ "\n(prese enter to continue)");
+                        write("insufficent funds" + "\n(prese enter to continue)");
                         write(" (prese enter to continue)");
                         await buttonSignal.WaitAsync();
                     }
@@ -194,15 +214,23 @@ namespace ATM
                 write(" your current balance is : " + activeAccount.getBalance());
                 write(" (prese enter to continue)");
                 await buttonSignal.WaitAsync();
+
+                if (canceled)
+                    return;
+
                 clear();
             }
         }
 
+        delegate void SetTextCallback(string text);
+
         private async Task<int> recieveInput()
-        { 
+        {
             await buttonSignal.WaitAsync();
 
-            if (input.TextLength == 0)
+
+
+            if (input.Text.Length == 0)
             {
                 return 0;
             }
@@ -214,13 +242,13 @@ namespace ATM
                 input.Text = "";
 
                 return input_;
-            } catch (OverflowException) {
+            }
+            catch (OverflowException)
+            {
                 input.Text = "";
 
                 return 0;
             }
-            
-            
         }
 
         //write to output text box
@@ -242,8 +270,9 @@ namespace ATM
             {
                 buttonSignal.Release();
             }
-            catch (ObjectDisposedException) { 
-                
+            catch (ObjectDisposedException)
+            {
+
             }
         }
 
@@ -258,12 +287,22 @@ namespace ATM
         }
 
         //enter key also releases button signal
-        private void input_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private async void input_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 buttonSignal.Release();
 
         }
-    }
 
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            canceled = true;
+
+            buttonSignal.Release();
+
+            clear();
+        }
+    }
 }
+
+

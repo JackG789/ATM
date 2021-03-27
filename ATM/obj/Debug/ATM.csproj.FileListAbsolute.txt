@@ -1,0 +1,10 @@
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.csprojAssemblyReference.cache
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.Properties.Resources.resources
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.csproj.GenerateResource.cache
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.csproj.CoreCompileInputs.cache
+C:\Users\Struan\Desktop\atm\ATM\bin\Debug\ATM.exe.config
+C:\Users\Struan\Desktop\atm\ATM\bin\Debug\ATM.exe
+C:\Users\Struan\Desktop\atm\ATM\bin\Debug\ATM.pdb
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.exe
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.pdb
+C:\Users\Struan\Desktop\atm\ATM\obj\Debug\ATM.ATMForm.resources

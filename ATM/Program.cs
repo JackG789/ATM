@@ -7,6 +7,14 @@ using System.Windows.Forms;
 
 namespace ATM
 {
+    public static class Global
+    {
+        //this is the semaphore which will control the access to the bank funds
+        //Will only allow one thread in at a time and starts with one space open
+        public static Semaphore _access = new Semaphore(1, 1);
+    }
+
+
     public class Account
     {
         //the attributes for the account
@@ -34,7 +42,7 @@ namespace ATM
 
         /*
          *   This funciton allows us to decrement the balance of an account
-         *   it perfomes a simple check to ensure the balance is greater tha
+         *   it perfomes a simple check to ensure the balance is greater than
          *   the amount being debeted
          *   
          *   reurns:
@@ -45,6 +53,11 @@ namespace ATM
         {
             if (this.balance > amount)
             {
+                //After the balance is checked, we will manually wait 2 seconds to allow
+                //The user to create a race condition themselves
+                //(e.g. withdrawing £500 from an 
+                //account at two atms where that balance is only £750 - results in £-250)
+                Thread.Sleep(2000);
                 balance -= amount;
                 return true;
             }
@@ -55,7 +68,7 @@ namespace ATM
         }
 
         /*
-         * This funciton check the account pin against the argument passed to it
+         * This funciton checks the account pin against the argument passed to it
          *
          * returns:
          * true if they match
@@ -86,8 +99,10 @@ namespace ATM
         /// </summary>
         [STAThread]
 
-        static void Main()
+
+        public static void Main()
         {
+            //Create 3 accounts
             Account[] ac = new Account[3];
             ac[0] = new Account(300, 1111, 111111);
             ac[1] = new Account(750, 2222, 222222);
@@ -96,6 +111,7 @@ namespace ATM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //Create 4 ATM windows and create a thread for each
             for (int i=0; i<4; i++)
             {
                 Thread _thread = new Thread(() =>

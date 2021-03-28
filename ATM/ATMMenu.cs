@@ -57,7 +57,7 @@ namespace ATM
         {
             int mode = 0;
             string strMode = modeList.GetItemText(modeList.SelectedItem);
-            if (strMode.Equals(""))
+            if (strMode.Equals("") || Convert.ToInt32(numList.Value)==0)
             {
                 DialogResult result;
                 result = MessageBox.Show("You must select an ATM Mode to start ", "Selection Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,9 +68,11 @@ namespace ATM
                     mode = 0;
                 if (strMode.Equals("Semaphore"))
                     mode = 1;
+                if (strMode.Equals("Lock"))
+                    mode = 3;
 
-                //Create 2 ATM windows and create a thread for each
-                for (int i = 0; i < 2; i++)
+                //Create ATM windows and create a thread for each
+                for (int i = 0; i < Convert.ToInt32(numList.Value); i++)
                 {
                     Thread _thread = new Thread(() =>
                     {

@@ -25,6 +25,11 @@ namespace ATM
             ac[2] = new Account(3000, 3333, 333333);
         }
 
+        private void ATMMenu_Update(object sender, EventArgs e)
+        {
+
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result;
@@ -41,6 +46,11 @@ namespace ATM
                 "it will go into the negatives (i.e. if you withdraw £500 twice from an account that has £750, then their balance will end up £-250.\n\n" +
                 "2: Semaphore Fix - This ATM fixes the race condition mentioned above by using a semaphore to restrict access to the account's balance.\n\n" +
                 "3: Lock Fix - This ATM uses a Lock to prevent access to the account's balance", "How to", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +80,6 @@ namespace ATM
                     _thread.Start();
                 }
             }
-        }
+        }        
     }
 }

@@ -53,18 +53,22 @@ namespace ATM
         {
             if (this.balance > amount)
             {
-                //After the balance is checked, we will manually wait 2 seconds to allow
-                //The user to create a race condition themselves
-                //(e.g. withdrawing £500 from an 
-                //account at two atms where that balance is only £750 - results in £-250)
-                Thread.Sleep(2000);
-                balance -= amount;
+                //This is a manual implementation of a race condition
+                updateBalance(balance - amount);
+                //after this function, if race condition has been selected then the balance will be overwritten
                 return true;
             }
             else
             {
                 return false;
             }
+        }
+
+        //This function is used to manually demonstrate the race condition by updating the balance from a function
+        public void updateBalance(int amount)
+        {
+            Thread.Sleep(2000);
+            balance = amount;
         }
 
         /*

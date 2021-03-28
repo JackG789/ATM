@@ -23,9 +23,12 @@ namespace ATM
 
         //Checks if the cancel button has been pressed - if it has, return to get account number screen
         bool canceled;
-        
+
+        //This will determine whether we will have a race condition, semaphore or lock
+        int mode;
+
         //Constructor
-        public ATMForm(Account[] ac)
+        public ATMForm(Account[] ac, int mode)
         {
             InitializeComponent();
             input.KeyPress += input_KeyPress;
@@ -45,6 +48,7 @@ namespace ATM
             button9.Click += new EventHandler(this.keypad_Click);
 
             this.ac = ac;
+            this.mode = mode;
 
             run();
             
@@ -172,16 +176,21 @@ namespace ATM
                 //opiton one is entered by the user
                 if (input == 1)
                 {
-                    //Wait to get access from semaphore to ensure no race conditions happen
-                    Global._access.WaitOne();
+                    //if mode is semaphore(mode==1)Wait to get access from semaphore to ensure no race conditions happen
+                    if (mode == 1)
+                        Global._access.WaitOne();
+
                     //attempt to decrement account by 10 punds
                     if (activeAccount.decrementBalance(10))
                     {
                         //if this is possible display new balance and await key press
                         write("new balance " + activeAccount.getBalance());
                         write("(prese enter to continue)");
+
                         //Now that we have finished any operations involving the banks balance, we can release the semaphore
-                        Global._access.Release();
+                        if (mode == 1)
+                            Global._access.Release();
+
                         await buttonSignal.WaitAsync();
                     }
                     else
@@ -189,51 +198,68 @@ namespace ATM
                         //if this is not possible inform user and await key press
                         write("insufficent funds"+ "\n(prese enter to continue)");
                         write(" (prese enter to continue)");
+
                         //Now that we have finished any operations involving the banks balance, we can release the semaphore
-                        Global._access.Release();
+                        if (mode == 1)
+                            Global._access.Release();
+
                         await buttonSignal.WaitAsync();
                     }                    
 
                 }
                 else if (input == 2)
                 {
-                    //Wait to get access from semaphore to ensure no race conditions happen
-                    Global._access.WaitOne();
+                    //If mode is semaphore(mode==1) Wait to get access from semaphore to ensure no race conditions happen
+                    if (mode == 1)
+                        Global._access.WaitOne();
                     if (activeAccount.decrementBalance(50))
                     {
                         write("new balance " + activeAccount.getBalance());
                         write(" (prese enter to continue)");
+
                         //Now that we have finished any operations involving the banks balance, we can release the semaphore
-                        Global._access.Release();
+                        if (mode == 1)
+                            Global._access.Release();
+
                         await buttonSignal.WaitAsync();
                     }
                     else
                     {
                         write("insufficent funds");
                         write(" (prese enter to continue)");
+
                         //Now that we have finished any operations involving the banks balance, we can release the semaphore
-                        Global._access.Release();
+                        if (mode == 1)
+                            Global._access.Release();
+
                         await buttonSignal.WaitAsync();
                     }
                 }
                 else if (input == 3)
                 {
-                    //Wait to get access from semaphore to ensure no race conditions happen
-                    Global._access.WaitOne();
+                    //If mode is semaphore(mode==1)Wait to get access from semaphore to ensure no race conditions happen
+                    if (mode == 1)
+                        Global._access.WaitOne();
                     if (activeAccount.decrementBalance(500))
                     {
                         write("new balance " + activeAccount.getBalance());
                         write(" (prese enter to continue)");
+
                         //Now that we have finished any operations involving the banks balance, we can release the semaphore
-                        Global._access.Release();
+                        if (mode == 1)
+                            Global._access.Release();
+
                         await buttonSignal.WaitAsync();
                     }
                     else
                     {
                         write("insufficent funds");
                         write(" (prese enter to continue)");
+
                         //Now that we have finished any operations involving the banks balance, we can release the semaphore
-                        Global._access.Release();
+                        if (mode == 1)
+                            Global._access.Release();
+
                         await buttonSignal.WaitAsync();
                     }
                 }
@@ -399,11 +425,5 @@ namespace ATM
 
             clear();
         }
-
-        private void side4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }

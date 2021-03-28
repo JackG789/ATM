@@ -54,7 +54,7 @@
             // 
             // input
             // 
-            this.input.Location = new System.Drawing.Point(59, 149);
+            this.input.Location = new System.Drawing.Point(59, 175);
             this.input.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.input.Name = "input";
             this.input.Size = new System.Drawing.Size(154, 22);
@@ -65,7 +65,7 @@
             // 
             this.enter.BackColor = System.Drawing.Color.LightGreen;
             this.enter.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enter.Location = new System.Drawing.Point(347, 289);
+            this.enter.Location = new System.Drawing.Point(347, 331);
             this.enter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enter.Name = "enter";
             this.enter.Size = new System.Drawing.Size(76, 49);
@@ -92,7 +92,7 @@
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(59, 176);
+            this.button1.Location = new System.Drawing.Point(59, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(70, 50);
             this.button1.TabIndex = 3;
@@ -103,7 +103,7 @@
             // 
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(135, 176);
+            this.button2.Location = new System.Drawing.Point(135, 218);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(70, 50);
             this.button2.TabIndex = 4;
@@ -114,7 +114,7 @@
             // 
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(211, 176);
+            this.button3.Location = new System.Drawing.Point(211, 218);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(70, 50);
             this.button3.TabIndex = 5;
@@ -125,7 +125,7 @@
             // 
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button4.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(59, 232);
+            this.button4.Location = new System.Drawing.Point(59, 274);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(70, 50);
             this.button4.TabIndex = 6;
@@ -136,7 +136,7 @@
             // 
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button5.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(135, 232);
+            this.button5.Location = new System.Drawing.Point(135, 274);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(70, 50);
             this.button5.TabIndex = 7;
@@ -147,7 +147,7 @@
             // 
             this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button6.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(211, 232);
+            this.button6.Location = new System.Drawing.Point(211, 274);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(70, 50);
             this.button6.TabIndex = 8;
@@ -158,7 +158,7 @@
             // 
             this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button7.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(59, 288);
+            this.button7.Location = new System.Drawing.Point(59, 330);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(70, 50);
             this.button7.TabIndex = 9;
@@ -169,7 +169,7 @@
             // 
             this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button8.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(135, 287);
+            this.button8.Location = new System.Drawing.Point(135, 329);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(70, 50);
             this.button8.TabIndex = 10;
@@ -180,7 +180,7 @@
             // 
             this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button9.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(211, 288);
+            this.button9.Location = new System.Drawing.Point(211, 330);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(70, 50);
             this.button9.TabIndex = 11;
@@ -191,7 +191,7 @@
             // 
             this.button0.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button0.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button0.Location = new System.Drawing.Point(135, 343);
+            this.button0.Location = new System.Drawing.Point(135, 385);
             this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(70, 50);
             this.button0.TabIndex = 12;
@@ -223,7 +223,7 @@
             // side3
             // 
             this.side3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.side3.Location = new System.Drawing.Point(12, 78);
+            this.side3.Location = new System.Drawing.Point(12, 79);
             this.side3.Name = "side3";
             this.side3.Size = new System.Drawing.Size(41, 30);
             this.side3.TabIndex = 15;
@@ -235,7 +235,7 @@
             // 
             this.clearButton.BackColor = System.Drawing.Color.Yellow;
             this.clearButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(347, 232);
+            this.clearButton.Location = new System.Drawing.Point(347, 274);
             this.clearButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(76, 50);
@@ -248,7 +248,7 @@
             // 
             this.cancelButton.BackColor = System.Drawing.Color.Red;
             this.cancelButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(347, 176);
+            this.cancelButton.Location = new System.Drawing.Point(347, 218);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(76, 50);
@@ -260,19 +260,18 @@
             // side4
             // 
             this.side4.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.side4.Location = new System.Drawing.Point(11, 111);
+            this.side4.Location = new System.Drawing.Point(12, 115);
             this.side4.Name = "side4";
             this.side4.Size = new System.Drawing.Size(41, 30);
             this.side4.TabIndex = 22;
             this.side4.Text = "4";
             this.side4.UseVisualStyleBackColor = true;
-            this.side4.Click += new System.EventHandler(this.side4_Click);
             // 
             // blankButton1
             // 
             this.blankButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.blankButton1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blankButton1.Location = new System.Drawing.Point(59, 344);
+            this.blankButton1.Location = new System.Drawing.Point(59, 386);
             this.blankButton1.Name = "blankButton1";
             this.blankButton1.Size = new System.Drawing.Size(70, 50);
             this.blankButton1.TabIndex = 23;
@@ -282,7 +281,7 @@
             // 
             this.blankButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.blankButton2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blankButton2.Location = new System.Drawing.Point(211, 344);
+            this.blankButton2.Location = new System.Drawing.Point(211, 386);
             this.blankButton2.Name = "blankButton2";
             this.blankButton2.Size = new System.Drawing.Size(70, 50);
             this.blankButton2.TabIndex = 24;
@@ -291,7 +290,7 @@
             // blankButton3
             // 
             this.blankButton3.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blankButton3.Location = new System.Drawing.Point(347, 342);
+            this.blankButton3.Location = new System.Drawing.Point(347, 384);
             this.blankButton3.Name = "blankButton3";
             this.blankButton3.Size = new System.Drawing.Size(76, 49);
             this.blankButton3.TabIndex = 25;
@@ -302,7 +301,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(465, 409);
+            this.ClientSize = new System.Drawing.Size(465, 459);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.blankButton3);
             this.Controls.Add(this.blankButton2);
